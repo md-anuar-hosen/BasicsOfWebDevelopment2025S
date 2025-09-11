@@ -1,12 +1,19 @@
-< !-- Author: Wanjia Liang Date: 2025-09-08 -->body {
-    background-color: lightblue;
-}
+ /*
+Author: Md Anuar Hosen
+Date: 2025-09-11
+*/
 
+html, body { height: 100%; margin: 0; }
+body {
+  background-color: #f7f9fc;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height: 1.6;
+  padding: 1.25rem;
+}
 h1 {
-    color: rgb(90, 75, 75);
-    font-size: large;
+  color: #0a58ca;
+  font-size: 2.25rem;
+  margin: 0 0 0.5rem 0;
 }
-
-p {
-    color: rgb(23, 10, 209);
-}
+p { color: #333333; }
+a { text-decoration: underline; }
