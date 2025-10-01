@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+  Author: Md Anuar Hosen
+  Date: 2025-10-01
+  -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Task D — CSS Selector Playground</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1 id="page-title">CSS Selector Playground</h1>
+    <p class="lead">
+      This page is for practicing different CSS selectors including element, class, id, group, descendant,
+      and attribute selectors. It also keeps the layout clean and readable.
+    </p>
+  </header>
+
+  <main>
+    <section class="grid">
+      <div class="box highlight">
+        <h2>Headings</h2>
+        <h3 class="sub">Sub-heading styled by group selector</h3>
+        <p>Element selectors style <strong>p</strong> tags globally, while group selectors style multiple heading levels together.</p>
+      </div>
+
+      <div class="box note">
+        <h2>Special Message (ID)</h2>
+        <p id="special-message">This paragraph uses an <strong>ID selector</strong> to look different.</p>
+      </div>
+
+      <div class="box">
+        <h2>Lists</h2>
+        <ul class="features">
+          <li>Clean typography</li>
+          <li>Consistent spacing</li>
+          <li>Accessible colors</li>
+        </ul>
+        <ol class="steps">
+          <li>Create folder <code>task-d</code></li>
+          <li>Add <code>index.html</code> &amp; <code>style.css</code></li>
+          <li>Commit &amp; submit RAW links</li>
+        </ol>
+      </div>
+
+      <div class="box">
+        <h2>Links & Images (Attribute selectors)</h2>
+        <p>
+          Visit an external site:
+          <a href="https://developer.mozilla.org/" target="_blank" rel="noopener">MDN Web Docs</a>
+        </p>
+        <figure>
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Placeholder_view_vector.svg"
+            alt="Placeholder illustration"
+            width="240"
+          />
+          <figcaption>Image with an <code>alt</code> attribute to target via attribute selector.</figcaption>
+        </figure>
+      </div>
+
+      <section class="box">
+        <h2>Descendant Selector Demo</h2>
+        <section class="nest">
+          <ul>
+            <li><a href="https://example.com" target="_blank">Nested link A</a></li>
+            <li><a href="https://example.org" target="_blank">Nested link B</a></li>
+            <li><a href="https://example.net" target="_blank">Nested link C</a></li>
+          </ul>
+        </section>
+        <p>Only links inside <code>.nest ul li</code> get a special descendant style.</p>
+      </section>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Md Anuar Hosen</p>
+  </footer>
+</body>
+</html>
