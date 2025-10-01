@@ -1,0 +1,48 @@
+/*
+Author: Md Anuar Hosen
+Date: 2025-09-26
+*/
+
+/* Base layout */
+:root { --ink:#0e1b2a; --muted:#5b6773; --bg:#f5f7fb; --brand:#0057d9; }
+* { box-sizing: border-box; }
+
+html, body { height: 100%; margin: 0; }
+body {
+  background: var(--bg);                       /* required: page background */
+  color: var(--ink);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height: 1.6;
+  padding: 1.25rem;
+}
+
+header, main { max-width: 960px; margin: 0 auto; }
+
+h1 {
+  color: var(--brand);                          /* required: heading color */
+  font-size: 2.25rem;                           /* required: heading size */
+  margin: 0 0 .75rem 0;
+}
+h2 { margin: 1.25rem 0 .5rem 0; color:#0a4aa6; }
+p { color: #333333; }                           /* required: paragraph text color */
+
+/* Blocks & spacing */
+.block {
+  background: #fff;
+  border: 1px solid #e7eef8;
+  border-radius: 12px;
+  padding: 1rem;
+  margin: 1rem 0;                               /* required: spacing between sections */
+}
+.caption { color: var(--muted); font-size: .95rem; }
+
+/* Media rules */
+.media {
+  display: block;                               /* center using auto margins */
+  margin: .5rem auto;
+  max-width: 100%;                              /* required: image width 100% */
+}
+img.media { max-width: 500px; }                 /* required: max-width for image */
+
+/* Footer */
+footer { text-align: center; margin-top: 2rem; color: var(--muted); }
