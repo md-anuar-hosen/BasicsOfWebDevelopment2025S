@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+  Author: Md Anuar Hosen
+  Date: 2025-09-26
+  -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>My Multimedia Showcase — Task C</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>My Multimedia Showcase</h1>
+    <p>
+      This page demonstrates embedding a Creative Commons image, an audio clip, and a video.
+      I also describe the sources and licenses below.
+    </p>
+  </header>
+
+  <main>
+    <!-- Image (CC / public-domain) -->
+    <section class="block">
+      <h2>Image</h2>
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Example.jpg"
+        alt="A sample Creative Commons example image from Wikimedia Commons"
+        class="media"
+      />
+      <p class="caption">
+        Source: Wikimedia Commons — “Example.jpg”. License: <strong>CC0 / Public Domain</strong>.
+      </p>
+    </section>
+
+    <!-- Audio (CC0 sample from MDN interactive examples) -->
+    <section class="block">
+      <h2>Audio</h2>
+      <audio controls class="media">
+        <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+      <p class="caption">
+        Source: MDN Interactive Examples. License: <strong>CC0</strong> (free to use).
+      </p>
+    </section>
+
+    <!-- Video (CC0 sample from MDN interactive examples) -->
+    <section class="block">
+      <h2>Video</h2>
+      <video controls class="media" width="640">
+        <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <p class="caption">
+        Source: MDN Interactive Examples — “flower.mp4”. License: <strong>CC0</strong>.
+      </p>
+    </section>
+
+    <section class="block">
+      <h2>License Notes</h2>
+      <p>
+        All media on this page are CC0/Public Domain samples suitable for educational use. I included
+        alt text for the image and used <code>controls</code> on audio/video to support accessibility.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <small>&copy; 2025 Md Anuar Hosen</small>
+  </footer>
+</body>
+</html>
