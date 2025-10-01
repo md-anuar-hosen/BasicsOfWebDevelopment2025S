@@ -1,0 +1,75 @@
+/*
+Author: Md Anuar Hosen
+Date: 2025-10-01
+*/
+
+/* -------- Element selectors -------- */
+html, body { height: 100%; margin: 0; }
+body {
+  background: #f6f9ff;
+  color: #0e1b2a;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height: 1.65;
+  padding: 1.25rem;
+}
+p { color: #333; }                 /* element selector: p */
+h1 { margin: 0 0 .5rem 0; }        /* element selector: h1 */
+
+/* -------- Group selectors -------- */
+h1, h2, h3 {
+  font-weight: 700;
+  color: #0a4aa6;
+}
+
+/* -------- Class selectors -------- */
+.lead { max-width: 70ch; }
+.box {
+  background: #fff;
+  border: 1px solid #e5edff;
+  border-radius: 12px;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+.highlight { box-shadow: 0 2px 12px rgba(10, 74, 166, 0.08); }
+.note { background: #fefcff; border-color: #f0e6ff; }
+
+/* Layout */
+.grid { max-width: 1000px; margin: 0 auto; }
+.sub { font-size: 1.1rem; color: #0e3780; }
+
+/* Lists */
+.features li { list-style: square; margin: .25rem 0; }
+.steps li { list-style: decimal-leading-zero; margin: .25rem 0; }
+
+/* -------- ID selector -------- */
+#special-message {
+  border-left: 6px solid #0a4aa6;
+  padding: .5rem .75rem;
+  background: #eef5ff;
+  font-weight: 600;
+}
+
+/* -------- Attribute selectors -------- */
+a[target="_blank"] {               /* anchor with target attribute */
+  color: #0057d9;
+  text-decoration: none;
+  font-weight: 600;
+}
+a[target="_blank"]:hover { text-decoration: underline; }
+
+img[alt] {                         /* any image that has alt attribute */
+  display: block;
+  border-radius: 10px;
+  margin: .5rem 0;
+}
+
+/* -------- Descendant selectors -------- */
+.nest ul li a {                    /* links only inside .nest > ul > li */
+  color: #0a8a5b;
+}
+section ul li {                    /* list items inside any section */
+  line-height: 1.5;
+}
+
+/* Footer polish */
+footer { text-align: center; color: #5b6773; margin-top: 2rem; }
