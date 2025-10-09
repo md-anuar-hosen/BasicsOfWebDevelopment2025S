@@ -2,54 +2,71 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Inventory Table</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Weekly Timetable — Task F</title>
   <link rel="stylesheet" href="style.css" />
+  <script defer src="index.js"></script>
 </head>
 <body>
-
   <header class="site-header">
-    <h1>Inventory Table</h1>
-    <p class="intro">Click <em>Add row</em> to append a new row at the end of the table.</p>
+    <h1>Weekly Timetable</h1>
   </header>
 
   <main class="content">
-    <div class="toolbar">
-      <button id="addRowBtn" class="btn">Add row</button>
-    </div>
+    <section class="grid">
+      <!-- Information card -->
+      <div class="card">
+        <h2 class="card-title">Information</h2>
+        <p><strong>Student:</strong> Md Anuar Hosen</p>
+        <p><strong>Group:</strong> Group A</p>
+      </div>
 
-    <div class="table-wrap">
-      <table class="table" id="invTable">
-        <caption>Items &amp; stock</caption>
+      <!-- Add Course card -->
+      <div class="card">
+        <h2 class="card-title">Add Course</h2>
+
+        <label class="field">
+          <span>Course name</span>
+          <input id="courseName" type="text" placeholder="e.g., Web Development Basics" />
+        </label>
+
+        <fieldset class="field days">
+          <legend>Days (✅ = yes, ❌ = no)</legend>
+          <label><input type="checkbox" id="dMon" /> Mon</label>
+          <label><input type="checkbox" id="dTue" /> Tue</label>
+          <label><input type="checkbox" id="dWed" /> Wed</label>
+          <label><input type="checkbox" id="dThu" /> Thu</label>
+          <label><input type="checkbox" id="dFri" /> Fri</label>
+        </fieldset>
+
+        <div class="actions">
+          <button id="addBtn" class="btn primary">Add row</button>
+          <button id="clearBtn" class="btn">Clear</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="table-wrap">
+      <table class="table" aria-describedby="caption">
+        <caption id="caption" class="sr-only">Course attendance by weekday</caption>
         <thead>
           <tr>
-            <th scope="col">#</th>
-            <th scope="col">Item name</th>
-            <th scope="col">Category</th>
-            <th scope="col">Qty</th>
-            <th scope="col">Status</th>
+            <th scope="col">Course</th>
+            <th scope="col">Mon</th>
+            <th scope="col">Tue</th>
+            <th scope="col">Wed</th>
+            <th scope="col">Thu</th>
+            <th scope="col">Fri</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody id="scheduleBody">
           <tr>
-            <th scope="row">1</th>
-            <td>Notebook</td>
-            <td>Stationery</td>
-            <td>24</td>
-            <td>In stock</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>USB Drive</td>
-            <td>Electronics</td>
-            <td>8</td>
-            <td>Low</td>
+            <th scope="row">Basics of web development</th>
+            <td>❌</td><td>✅</td><td>❌</td><td>✅</td><td>❌</td>
           </tr>
         </tbody>
       </table>
-    </div>
+    </section>
   </main>
-
-  <script src="index.js"></script>
 </body>
 </html>
