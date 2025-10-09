@@ -12,8 +12,7 @@ body{
   background:var(--page-bg);
   color:var(--text);
   font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Inter,Arial,sans-serif;
-  overflow-x:hidden; /* stop page-level horizontal scroll */
-}
+  overflow-x:hidden; 
 
 /* Header */
 .site-header{
@@ -118,8 +117,7 @@ body{
 /* TABLE */
 .table-wrap{
   margin-top:1rem;
-  overflow-x:auto;                 /* internal horizontal scroll */
-  -webkit-overflow-scrolling:touch;
+  overflow-x:auto;                  
 }
 .table{
   width:100%;
