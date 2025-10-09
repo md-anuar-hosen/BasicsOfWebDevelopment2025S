@@ -1,57 +1,52 @@
- // Symbols used in the table
-const YES = "✅";
-const NO  = "❌";
+ const courseInput = document.getElementById('courseName');
+const checks = {
+  mon: document.getElementById('dMon'),
+  tue: document.getElementById('dTue'),
+  wed: document.getElementById('dWed'),
+  thu: document.getElementById('dThu'),
+  fri: document.getElementById('dFri'),
+};
+const body = document.getElementById('scheduleBody');
+const addBtn = document.getElementById('addBtn');
+const clearBtn = document.getElementById('clearBtn');
 
-// Elements
-const nameInput = document.getElementById("courseName");
-const addBtn    = document.getElementById("addBtn");
-const clearBtn  = document.getElementById("clearBtn");
-const bodyEl    = document.getElementById("scheduleBody");
+const YES = '✅';
+const NO  = '❌';
 
-const dayIds = ["dMon","dTue","dWed","dThu","dFri"];
-
-/** Make a TD with ✅/❌ from boolean */
-function cell(val){
-  const td = document.createElement("td");
-  td.textContent = val ? YES : NO;
-  return td;
+function rowCellsFromChecks() {
+  return [
+    checks.mon.checked ? YES : NO,
+    checks.tue.checked ? YES : NO,
+    checks.wed.checked ? YES : NO,
+    checks.thu.checked ? YES : NO,
+    checks.fri.checked ? YES : NO,
+  ];
 }
 
-/** Add a new course row */
-function addRow(){
-  const name = (nameInput.value || "").trim();
+function resetForm() {
+  courseInput.value = '';
+  for (const k in checks) checks[k].checked = false;
+  courseInput.focus();
+}
 
-  if(!name){
-    nameInput.focus();
-    nameInput.setAttribute("aria-invalid","true");
-    nameInput.style.borderColor = "#d33";
-    return;
-  }
-  nameInput.removeAttribute("aria-invalid");
-  nameInput.style.borderColor = "";
+addBtn.addEventListener('click', () => {
+  const name = courseInput.value.trim() || 'Untitled course';
 
-  // read checkboxes -> booleans
-  const states = dayIds.map(id => document.getElementById(id).checked);
+  const tr = document.createElement('tr');
 
-  const tr = document.createElement("tr");
-
-  const th = document.createElement("th");
-  th.scope = "row";
+  const th = document.createElement('th');
+  th.scope = 'row';
   th.textContent = name;
   tr.appendChild(th);
 
-  states.forEach(s => tr.appendChild(cell(s)));
+  for (const val of rowCellsFromChecks()) {
+    const td = document.createElement('td');
+    td.textContent = val;
+    tr.appendChild(td);
+  }
 
-  bodyEl.appendChild(tr);
-}
+  body.appendChild(tr);
+  resetForm();
+});
 
-/** Clear form */
-function clearForm(){
-  nameInput.value = "";
-  dayIds.forEach(id => (document.getElementById(id).checked = false));
-  nameInput.focus();
-}
-
-// events
-addBtn.addEventListener("click", addRow);
-clearBtn.addEventListener("click", clearForm);
+clearBtn.addEventListener('click', resetForm);
