@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Task F — Add row behavior</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>Inventory Table</h1>
+    <p class="intro">Click <em>Add row</em> to append a new row at the end of the table.</p>
+  </header>
+
+  <main class="content">
+    <div class="toolbar">
+      <button id="add-row" class="btn">Add row</button>
+    </div>
+
+    <div class="table-wrap">
+      <table class="table" id="data-table">
+        <caption>Items &amp; stock</caption>
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Item name</th>
+            <th scope="col">Category</th>
+            <th scope="col">Qty</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody id="table-body">
+          <tr>
+            <th scope="row">1</th>
+            <td>Notebook</td>
+            <td>Stationery</td>
+            <td>24</td>
+            <td>In stock</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>USB Drive</td>
+            <td>Electronics</td>
+            <td>8</td>
+            <td>Low</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <script src="index.js"></script>
+</body>
+</html>
