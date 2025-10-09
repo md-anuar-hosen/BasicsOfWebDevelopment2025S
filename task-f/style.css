@@ -1,0 +1,72 @@
+:root{
+  /* required palette */
+  --page-bg: #fcfdfc;
+  --text: #2a2a2a;
+  --brand: #6c4f8d;
+  --table-alt: #f9f5ff;
+  --border: #e0e0e0;
+}
+
+/* Base */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background:var(--page-bg);
+  color:var(--text);
+  font:16px/1.55 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+/* Layout */
+.site-header{padding:1.25rem 1rem 0}
+.site-header h1{
+  margin:0 0 .25rem;
+  color:var(--brand);
+  font-size:clamp(1.5rem, 2.5vw, 2rem);
+}
+.intro{margin:.25rem 0 1rem .125rem; opacity:.85}
+
+.content{max-width:960px; margin:0 auto; padding:0 1rem 2rem}
+
+.toolbar{
+  display:flex; gap:.5rem; align-items:center;
+  margin:.5rem 0 1rem;
+}
+.btn{
+  background:var(--brand);
+  color:#fff;
+  border:1px solid var(--brand);
+  padding:.55rem .9rem;
+  border-radius:.5rem;
+  cursor:pointer;
+}
+.btn:focus-visible{outline:2px solid color-mix(in oklab, var(--brand) 70%, white)}
+.btn:hover{filter:brightness(1.03)}
+
+/* Table */
+.table-wrap{overflow:auto}
+.table{
+  width:100%;
+  border-collapse:collapse;
+  border:1px solid var(--border);
+  background:#fff;
+}
+caption{text-align:left; padding:.5rem 0; color:var(--brand); font-weight:600}
+thead th{
+  text-align:left;
+  background:color-mix(in oklab, var(--brand) 12%, white);
+  color:var(--text);
+  border-bottom:1px solid var(--border);
+  padding:.7rem .8rem;
+  position:sticky; top:0;
+}
+tbody th,
+tbody td{
+  padding:.65rem .8rem;
+  border-bottom:1px solid var(--border);
+}
+tbody tr:nth-child(even){background:var(--table-alt)}
+
+@media (max-width:640px){
+  .intro{display:none}
+}
