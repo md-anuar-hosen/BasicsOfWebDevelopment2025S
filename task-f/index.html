@@ -1,12 +1,13 @@
-<!DOCTYPE html>
+ <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Task F — Add row behavior</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Inventory Table</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
   <header class="site-header">
     <h1>Inventory Table</h1>
     <p class="intro">Click <em>Add row</em> to append a new row at the end of the table.</p>
@@ -14,11 +15,11 @@
 
   <main class="content">
     <div class="toolbar">
-      <button id="add-row" class="btn">Add row</button>
+      <button id="addRowBtn" class="btn">Add row</button>
     </div>
 
     <div class="table-wrap">
-      <table class="table" id="data-table">
+      <table class="table" id="invTable">
         <caption>Items &amp; stock</caption>
         <thead>
           <tr>
@@ -29,7 +30,7 @@
             <th scope="col">Status</th>
           </tr>
         </thead>
-        <tbody id="table-body">
+        <tbody>
           <tr>
             <th scope="row">1</th>
             <td>Notebook</td>
