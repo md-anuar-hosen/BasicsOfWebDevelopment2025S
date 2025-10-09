@@ -23,7 +23,7 @@ body{
   font-weight:700;
   font-size:1.5rem;
   letter-spacing:.5px;
-  box-shadow:0 2px 6px rgba(0,0,0,0.1);
+  box-shadow:0 2px 6px rgba(0,0,0,0.08);
   margin-bottom:1rem;
 }
 
@@ -74,12 +74,14 @@ body{
   box-shadow:0 0 0 3px color-mix(in srgb, var(--brand) 20%, transparent);
 }
 
-/* Days (horizontal layout fix) */
+/* Days — force horizontal like teacher demo */
 .days{
+  /* override .field column flow */
   display:flex;
+  flex-direction:row;
   flex-wrap:wrap;
   align-items:center;
-  gap:0.75rem 1.2rem;
+  gap:.75rem 1.1rem;
   border:1px dashed var(--border);
   border-radius:10px;
   padding:.75rem 1rem;
@@ -127,14 +129,29 @@ body{
 .table th,.table td{
   padding:.9rem 1rem;
   border-bottom:1px solid var(--border);
-  text-align:left;
   vertical-align:middle;
 }
+
+/* teacher-style header bar */
 .table thead th{
   background:var(--brand);
   color:#fff;
   font-weight:600;
 }
+
+/* Alignments to match teacher:
+   - Course (first col) left
+   - Day columns centered */
+.table thead th:first-child,
+.table tbody th[scope="row"]{
+  text-align:left;
+}
+.table thead th:not(:first-child),
+.table tbody td:not(:first-child){
+  text-align:center;
+}
+
+/* zebra */
 .table tbody tr:nth-child(even){background:var(--table-alt)}
 
 /* a11y helper */
