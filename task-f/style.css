@@ -12,6 +12,7 @@ body{
   background:var(--page-bg);
   color:var(--text);
   font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Inter,Arial,sans-serif;
+  overflow-x:hidden; /* stop page-level horizontal scroll */
 }
 
 /* Header */
@@ -23,8 +24,7 @@ body{
   font-weight:700;
   font-size:1.5rem;
   letter-spacing:.5px;
-  box-shadow:0 2px 6px rgba(0,0,0,0.08);
-  margin-bottom:1rem;
+  box-shadow:0 2px 6px rgba(0,0,0,.08);
 }
 
 /* Layout */
@@ -55,7 +55,7 @@ body{
   color:var(--brand);
 }
 
-/* Inputs */
+/* Text input */
 .field{
   display:flex;
   flex-direction:column;
@@ -74,9 +74,8 @@ body{
   box-shadow:0 0 0 3px color-mix(in srgb, var(--brand) 20%, transparent);
 }
 
-/* Days — force horizontal like teacher demo */
-.days{
-  /* override .field column flow */
+/* Days — force inline (higher specificity than .field) */
+.card .field.days{
   display:flex;
   flex-direction:row;
   flex-wrap:wrap;
@@ -87,12 +86,12 @@ body{
   padding:.75rem 1rem;
   margin-top:.5rem;
 }
-.days legend{
+.card .field.days legend{
   font-weight:600;
   color:var(--brand);
   margin-right:.75rem;
 }
-.days label{
+.card .field.days label{
   display:inline-flex;
   align-items:center;
   gap:.35rem;
@@ -116,43 +115,42 @@ body{
 .btn:hover{filter:brightness(1.02)}
 .btn.primary:hover{filter:brightness(1.08)}
 
-/* Table */
-.table-wrap{margin-top:1rem; overflow-x:auto}
+/* TABLE */
+.table-wrap{
+  margin-top:1rem;
+  overflow-x:auto;                 /* internal horizontal scroll */
+  -webkit-overflow-scrolling:touch;
+}
 .table{
   width:100%;
-  border-collapse:collapse;
+  min-width: 860px;                /* ensures columns keep shape; triggers internal scroll on small screens */
+  border-collapse:separate;
+  border-spacing:0;
   background:#fff;
-  border:1px solid var(--border);
+  border:1px solid var(--border);  /* clear outer border */
   border-radius:12px;
   overflow:hidden;
 }
-.table th,.table td{
-  padding:.9rem 1rem;
-  border-bottom:1px solid var(--border);
-  vertical-align:middle;
-}
-
-/* teacher-style header bar */
 .table thead th{
   background:var(--brand);
   color:#fff;
   font-weight:600;
 }
+.table th,.table td{
+  padding:.95rem 1rem;
+  border-bottom:1px solid var(--border); /* row dividers restored */
+  vertical-align:middle;
+}
 
-/* Alignments to match teacher:
-   - Course (first col) left
-   - Day columns centered */
+/* Align like teacher: first col left, day cols centered */
 .table thead th:first-child,
-.table tbody th[scope="row"]{
-  text-align:left;
-}
-.table thead th:not(:first-child),
-.table tbody td:not(:first-child){
-  text-align:center;
-}
+.table tbody th[scope="row"]{ text-align:left; }
 
-/* zebra */
-.table tbody tr:nth-child(even){background:var(--table-alt)}
+.table thead th:not(:first-child),
+.table tbody td:not(:first-child){ text-align:center; }
+
+/* Zebra */
+.table tbody tr:nth-child(even){ background:var(--table-alt); }
 
 /* a11y helper */
 .sr-only{
