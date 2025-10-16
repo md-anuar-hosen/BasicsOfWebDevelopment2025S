@@ -1,89 +1,75 @@
-:root {
-  --ink:#0e1b2a;
-  --muted:#5b6773;
-  --brand:#203a73;
-  --bg:#f5f7fb;
-  --card:#ffffff;
-  --border:#e3e9f6;
+ /*
+Author: Md Anuar Hosen
+Date: 2025-10-10
+*/
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fcfdfc;
+  color: #2a2a2a;
 }
 
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0;
-  background:var(--bg);
-  color:var(--ink);
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-  line-height:1.6;
+.site-header {
+  background-color: #273e73;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
 }
 
-.site-header{
-  background:var(--brand);
-  color:#fff;
-  padding:1.25rem 1rem;
-  text-align:center;
-  box-shadow:0 2px 14px rgba(32,58,115,.18);
-}
-.site-header h1{margin:0; font-size:2rem}
-
-.intro,
-.other-content{
-  max-width:920px;
-  margin:1rem auto;
-  color:var(--muted);
-  padding:0 1rem;
+.content {
+  margin: 2rem auto;
+  max-width: 800px;
 }
 
-.content{
-  max-width:980px;
-  margin:0 auto;
-  padding:1rem;
+.student-info {
+  background: #eef3ff;
+  border-left: 4px solid #273e73;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
 }
 
-.student-info{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:14px;
-  padding:1rem 1.25rem;
-  margin:1rem 0 1.25rem;
-  box-shadow:0 1px 6px rgba(2,12,27,.04);
-}
-.student-info p{margin:.25rem 0}
-
-.table-wrap{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:14px;
-  padding:0;
-  overflow-x:auto;
-  box-shadow:0 1px 6px rgba(2,12,27,.04);
+.table-wrap {
+  overflow-x: auto;
 }
 
-table{width:100%; border-collapse:collapse}
-caption{text-align:left; color:var(--muted); padding:.75rem 1rem}
-thead th{
-  background:var(--brand);
-  color:#fff;
-  padding:.9rem 1rem;
-  text-align:left;
-  position:sticky; top:0;
-}
-tbody th, tbody td{
-  padding:.8rem 1rem;
-  border-bottom:1px solid var(--border);
-}
-tbody tr:nth-child(even){background:#f3f6ff}
-
-@media (max-width: 768px){
-  .content{ margin-left:5%; margin-right:5%; }
-  .site-header,
-  .intro,
-  .other-content{ display:none; }
-  .student-info,
-  .table-wrap{ display:block; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
 }
 
-@media (max-width: 640px){
-  .content{ margin-left:1%; margin-right:1%; }
-  .student-info{ display:none; }
+caption {
+  caption-side: top;
+  font-weight: bold;
+  text-align: left;
+  padding: 0.5rem;
+}
+
+th, td {
+  border-bottom: 1px solid #d0d7e2;
+  padding: 0.6rem 1rem;
+  text-align: center;
+}
+
+thead th {
+  background-color: #273e73;
+  color: #fff;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f9f5ff;
+}
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+  .content { margin-left: 5%; margin-right: 5%; }
+  .site-header, .intro, .other-content { display: none; }
+  .student-info, .table-wrap { display: block; }
+}
+
+@media (max-width: 640px) {
+  .content { margin-left: 1%; margin-right: 1%; }
+  .student-info { display: none; }
 }
