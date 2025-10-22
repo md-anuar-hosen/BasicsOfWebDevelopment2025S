@@ -6,8 +6,8 @@ Date: 2025-10-10
 body {
   font-family: Arial, sans-serif;
   margin: 0;
-  color: #222;
-  background: #fff;
+  background-color: #fff;
+  color: #000;
 }
 
 .site-header {
@@ -20,7 +20,9 @@ body {
   max-width: 800px;
 }
 
-.table-wrap { overflow-x: auto; }
+.table-wrap {
+  overflow-x: auto;
+}
 
 table {
   width: 100%;
@@ -28,24 +30,24 @@ table {
   background: white;
 }
 
-caption { text-align: left; padding: 0.5rem 0; font-weight: bold; }
+caption {
+  caption-side: top;
+  font-weight: bold;
+  text-align: left;
+  padding: 0.5rem;
+}
 
 th, td {
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #000;
   padding: 0.6rem 1rem;
   text-align: center;
 }
 
-thead th { font-weight: bold; }
-
 /* ≤ 768px: margins 5%, show only student-info + table */
 @media (max-width: 768px) {
   .content { margin-left: 5%; margin-right: 5%; }
-  .site-header,
-  .intro,
-  .other-content { display: none; }
-  .student-info,
-  .table-wrap { display: block; }
+  .site-header, .intro, .other-content { display: none; }
+  .student-info, .table-wrap { display: block; }
 }
 
 /* ≤ 640px: margins 1%, show only the table */
