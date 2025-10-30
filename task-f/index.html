@@ -1,5 +1,9 @@
  <!doctype html>
 <html lang="en">
+ <!--
+Author: Md Anuar Hosen
+Date: 2025-10-10
+-->
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -13,33 +17,33 @@
   </header>
 
   <main class="content">
-    <section class="grid">
-      <div class="card">
-        <h2 class="card-title">Information</h2>
-        <p><strong>Student:</strong> Md Anuar Hosen</p>
-        <p><strong>Group:</strong> Group A</p>
+    <section class="two-col">
+      <div class="panel">
+        <h2>Information</h2>
+        <p>Md Anuar Hosen</p>
+        <p>AITS22P</p>
       </div>
 
-      <div class="card">
-        <h2 class="card-title">Add Course</h2>
+      <div class="panel">
+        <h2>Add Course</h2>
 
         <label class="field">
           <span>Course name</span>
           <input id="courseName" type="text" placeholder="e.g., Web Development Basics" />
         </label>
 
-        <fieldset class="field days">
-          <legend>Days (✅ = yes, ❌ = no)</legend>
-          <label><input type="checkbox" id="dMon" /> Mon</label>
-          <label><input type="checkbox" id="dTue" /> Tue</label>
-          <label><input type="checkbox" id="dWed" /> Wed</label>
-          <label><input type="checkbox" id="dThu" /> Thu</label>
-          <label><input type="checkbox" id="dFri" /> Fri</label>
+        <fieldset class="days">
+          <legend>Days (yes = ✅, no = ❌)</legend>
+          <label><input type="checkbox" id="dMon"> Mon</label>
+          <label><input type="checkbox" id="dTue"> Tue</label>
+          <label><input type="checkbox" id="dWed"> Wed</label>
+          <label><input type="checkbox" id="dThu"> Thu</label>
+          <label><input type="checkbox" id="dFri"> Fri</label>
         </fieldset>
 
         <div class="actions">
           <button id="addBtn" class="btn primary">Add row</button>
-          <button id="clearBtn" class="btn">Clear</button>
+          <button id="clearBtn" class="btn" type="button">Clear</button>
         </div>
       </div>
     </section>
@@ -57,12 +61,7 @@
             <th scope="col">Fri</th>
           </tr>
         </thead>
-        <tbody id="scheduleBody">
-          <tr>
-            <th scope="row">Basics of web development</th>
-            <td>❌</td><td>✅</td><td>❌</td><td>✅</td><td>❌</td>
-          </tr>
-        </tbody>
+        <tbody id="scheduleBody"><!-- MUST START EMPTY --></tbody>
       </table>
     </section>
   </main>
