@@ -1,44 +1,29 @@
- <!DOCTYPE html>
+
+<!DOCTYPE html>
 <html lang="en">
-<!--
-Author:  Md Anuar Hosen
-Date: 2025-10-01
--->
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Weekly Timetable</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!--
+    Author: Md Anuar Hosen
+    Date: 2025-09-30
+  -->
+
   <header class="site-header">
     <h1>Weekly Timetable</h1>
   </header>
 
   <main class="content">
-    <section class="intro">
-      <p>Below is the weekly timetable showing my study schedule.</p>
+    <!-- Student info block: edit the values as needed -->
+    <section class="student-info" aria-label="Student information">
+      <p><strong>Student:</strong> <span class="student-name"> MD Anuar Hosen</span></p>
+      <p><strong>Group:</strong> <span class="student-group">Group A</span></p>
     </section>
-
-    <section class="student-info">
-      <p><strong>Student:</strong> MD Anuar Hosen</p>
-      <p><strong>Group:</strong> Group B</p>
-    </section>
-
-    <section class="table-wrap">
-      <table aria-describedby="schedule-desc">
-        <caption id="schedule-desc">Weekly course attendance</caption>
-
-        <!-- Column widths: Course 40%, each weekday 12% (5 × 12 = 60%) -->
-        <colgroup>
-          <col style="width:40%">
-          <col style="width:12%">
-          <col style="width:12%">
-          <col style="width:12%">
-          <col style="width:12%">
-          <col style="width:12%">
-        </colgroup>
-
+    <div class="table-wrap">
+      <table class="table">
         <thead>
           <tr>
             <th scope="col">Course</th>
@@ -50,7 +35,6 @@ Date: 2025-10-01
           </tr>
         </thead>
         <tbody>
-          <!-- Your courses with ✅/❌ across Mon–Fri -->
           <tr>
             <th scope="row">Linux Essentials</th>
             <td>❌</td><td>❌</td><td>❌</td><td>✅</td><td>❌</td>
@@ -63,17 +47,10 @@ Date: 2025-10-01
             <th scope="row">Intelligent Devices</th>
             <td>❌</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td>
           </tr>
-          <tr>
-            <th scope="row">Matrices</th>
-            <td>❌</td><td>❌</td><td>✅</td><td>❌</td><td>✅</td>
           </tr>
         </tbody>
       </table>
-    </section>
-
-    <section class="other-content">
-      <p>This timetable demonstrates my weekly study plan using responsive design.</p>
-    </section>
+    </div>
   </main>
 </body>
 </html>
