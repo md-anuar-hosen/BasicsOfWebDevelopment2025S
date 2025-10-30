@@ -6,14 +6,14 @@ const checks = {
   thu: document.getElementById('dThu'),
   fri: document.getElementById('dFri'),
 };
-const body = document.getElementById('scheduleBody');
-const addBtn = document.getElementById('addBtn');
+const tbody   = document.getElementById('scheduleBody');
+const addBtn  = document.getElementById('addBtn');
 const clearBtn = document.getElementById('clearBtn');
 
 const YES = '✅';
 const NO  = '❌';
 
-function rowCellsFromChecks() {
+function valuesFromChecks() {
   return [
     checks.mon.checked ? YES : NO,
     checks.tue.checked ? YES : NO,
@@ -29,9 +29,10 @@ function resetForm() {
   courseInput.focus();
 }
 
-addBtn.addEventListener('click', () => {
-  const name = courseInput.value.trim() || 'Untitled course';
+addBtn.addEventListener('click', (e) => {
+  e.preventDefault();
 
+  const name = (courseInput.value || '').trim() || 'Untitled course';
   const tr = document.createElement('tr');
 
   const th = document.createElement('th');
@@ -39,14 +40,17 @@ addBtn.addEventListener('click', () => {
   th.textContent = name;
   tr.appendChild(th);
 
-  for (const val of rowCellsFromChecks()) {
+  for (const v of valuesFromChecks()) {
     const td = document.createElement('td');
-    td.textContent = val;
+    td.textContent = v;
     tr.appendChild(td);
   }
 
-  body.appendChild(tr);
+  tbody.appendChild(tr);
   resetForm();
 });
 
-clearBtn.addEventListener('click', resetForm);
+clearBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  resetForm();
+});
