@@ -1,55 +1,47 @@
- const courseInput = document.getElementById('courseName');
-const checks = {
-  mon: document.getElementById('dMon'),
-  tue: document.getElementById('dTue'),
-  wed: document.getElementById('dWed'),
-  thu: document.getElementById('dThu'),
-  fri: document.getElementById('dFri'),
-};
-const tbody = document.getElementById('scheduleBody');
-const addBtn = document.getElementById('addBtn');
-const clearBtn = document.getElementById('clearBtn');
+// index.js
+// Author: Md Anuar Hosen
+// Date: 2025-10-10
+// Adds new course rows with day marks (✅/❌)
 
-const YES = '✅';
-const NO = '❌';
+document.addEventListener("DOMContentLoaded", () => {
+  const CHECK = "✅";
+  const CROSS = "❌";
 
-function getDayValues() {
-  return [
-    checks.mon.checked ? YES : NO,
-    checks.tue.checked ? YES : NO,
-    checks.wed.checked ? YES : NO,
-    checks.thu.checked ? YES : NO,
-    checks.fri.checked ? YES : NO,
-  ];
-}
+  const form = document.getElementById("addCourseForm");
+  const tableBody = document.querySelector("#timetable tbody");
+  const courseInput = document.getElementById("courseName");
 
-function clearForm() {
-  courseInput.value = '';
-  for (const k in checks) checks[k].checked = false;
-  courseInput.focus();
-}
+  // Read day columns dynamically (skipping "Course")
+  const dayOrder = Array.from(document.querySelectorAll("#timetable thead th"))
+    .slice(1)
+    .map((th) => th.textContent.trim());
 
-addBtn.addEventListener('click', (e) => {
-  e.preventDefault();
-  const name = courseInput.value.trim() || 'Untitled course';
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
 
-  const tr = document.createElement('tr');
-  const th = document.createElement('th');
-  th.scope = 'row';
-  th.textContent = name;
-  tr.appendChild(th);
+    const courseName = courseInput.value.trim() || "Untitled course";
 
-  for (const val of getDayValues()) {
-    const td = document.createElement('td');
-    td.textContent = val;
-    tr.appendChild(td);
-  }
+    const checkedDays = new Set(
+      Array.from(form.querySelectorAll('input[name="day"]:checked')).map(
+        (cb) => cb.value
+      )
+    );
 
-  tbody.appendChild(tr);
-  clearForm();
-});
+    const row = document.createElement("tr");
 
-clearBtn.addEventListener('click', (e) => {
-  e.preventDefault();
-  clearForm();
+    const nameCell = document.createElement("td");
+    nameCell.textContent = courseName;
+    row.appendChild(nameCell);
+
+    dayOrder.forEach((day) => {
+      const cell = document.createElement("td");
+      cell.textContent = checkedDays.has(day) ? CHECK : CROSS;
+      cell.dataset.day = day;
+      row.appendChild(cell);
+    });
+
+    tableBody.appendChild(row);
+    form.reset();
+    courseInput.focus();
+  });
 });
