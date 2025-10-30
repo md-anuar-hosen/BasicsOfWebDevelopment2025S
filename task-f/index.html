@@ -1,68 +1,71 @@
- <!doctype html>
-<!--
-Author: Md Anuar Hosen
-Date: 2025-10-10
--->
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Weekly Timetable — Task F</title>
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="index.js"></script>
+  <meta charset="UTF-8">
+  <title>Weekly Timetable</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="index.js" defer></script>
 </head>
+
 <body>
+  <!--
+    Author: Md Anuar Hosen
+    Date: 2025-10-10
+  -->
+
   <header class="site-header">
     <h1>Weekly Timetable</h1>
   </header>
 
   <main class="content">
-    <section class="grid">
-      <div class="card">
-        <h2>Information</h2>
-        <p>Md Anuar Hosen</p>
-        <p>AITS22P</p>
-      </div>
+    <!-- Top row split into two blocks -->
+    <div class="top-grid">
+      <!-- Student info -->
+      <section class="student-info" aria-label="Student information">
+        <h2 class="student-info-title">Information</h2>
+        <p><span class="student-name">Md Anuar Hosen</span></p>
+        <p><span class="student-group">AITS22P</span></p>
+      </section>
 
-      <div class="card">
-        <h2>Add Course</h2>
-        <label class="field">
-          <span>Course name</span>
-          <input id="courseName" type="text" placeholder="e.g., Web Development Basics" />
-        </label>
+      <!-- Controls -->
+      <section class="controls" aria-label="Add course row">
+        <h2 class="controls-title">Add Course</h2>
 
-        <fieldset class="field days">
-          <legend>Days (✅ = yes, ❌ = no)</legend>
-          <label><input type="checkbox" id="dMon"> Mon</label>
-          <label><input type="checkbox" id="dTue"> Tue</label>
-          <label><input type="checkbox" id="dWed"> Wed</label>
-          <label><input type="checkbox" id="dThu"> Thu</label>
-          <label><input type="checkbox" id="dFri"> Fri</label>
-        </fieldset>
+        <form id="addCourseForm">
+          <div class="form-row">
+            <label for="courseName">Course name</label>
+            <input id="courseName" name="courseName" type="text" required placeholder="e.g., Web Development Basics">
+          </div>
 
-        <div class="actions">
-          <button id="addBtn" class="btn primary">Add row</button>
-          <button id="clearBtn" class="btn">Clear</button>
-        </div>
-      </div>
-    </section>
+          <fieldset class="days-group">
+            <legend>Days (yes = &#9989;, no = &#10060;)</legend>
+            <label><input type="checkbox" name="day" value="Tue"> Tue</label>
+            <label><input type="checkbox" name="day" value="Fri"> Fri</label>
+          </fieldset>
 
-    <section class="table-wrap">
-      <table class="table" aria-describedby="caption">
-        <caption id="caption" class="sr-only">Course attendance by weekday</caption>
+          <div class="form-row">
+            <button id="addRowBtn" type="submit" class="btn">Add row</button>
+            <button id="clearBtn" type="reset" class="btn btn-secondary">Clear</button>
+          </div>
+        </form>
+      </section>
+    </div>
+
+    <!-- Table -->
+    <div class="table-wrap">
+      <table class="table" id="timetable">
         <thead>
           <tr>
-            <th scope="col">Course</th>
-            <th scope="col">Mon</th>
-            <th scope="col">Tue</th>
-            <th scope="col">Wed</th>
-            <th scope="col">Thu</th>
-            <th scope="col">Fri</th>
+            <th>Course</th>
+            <th>Tue</th>
+            <th>Fri</th>
           </tr>
         </thead>
-        <tbody id="scheduleBody"></tbody>
+        <tbody></tbody>
       </table>
-    </section>
+    </div>
   </main>
 </body>
+
 </html>
