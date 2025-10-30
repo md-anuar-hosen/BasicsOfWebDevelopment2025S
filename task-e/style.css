@@ -1,13 +1,16 @@
  /*
 Author: Md Anuar Hosen
-Date: 2025-10-10
+Date: 2025-10-01
 */
 
+html { box-sizing: border-box; }
+*, *::before, *::after { box-sizing: inherit; }
+
 body {
-  font-family: Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   margin: 0;
-  background-color: #fff;
   color: #000;
+  background: #fff;
 }
 
 .site-header {
@@ -20,27 +23,28 @@ body {
   max-width: 800px;
 }
 
-.table-wrap {
-  overflow-x: auto;
-}
+.table-wrap { overflow-x: auto; }
 
 table {
   width: 100%;
   border-collapse: collapse;
-  background: white;
+  background: #fff;
 }
 
 caption {
-  caption-side: top;
-  font-weight: bold;
   text-align: left;
-  padding: 0.5rem;
+  font-weight: bold;
+  padding: 0.5rem 0;
 }
 
 th, td {
-  border-bottom: 1px solid #000;
   padding: 0.6rem 1rem;
+  border-bottom: 1px solid #d0d7e2;
   text-align: center;
+}
+
+thead th {
+  font-weight: bold;
 }
 
 /* ≤ 768px: margins 5%, show only student-info + table */
@@ -58,4 +62,3 @@ th, td {
   .content { margin-left: 1%; margin-right: 1%; }
   .student-info { display: none; }
 }
-
