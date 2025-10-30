@@ -6,14 +6,14 @@ const checks = {
   thu: document.getElementById('dThu'),
   fri: document.getElementById('dFri'),
 };
-const tbody   = document.getElementById('scheduleBody');
-const addBtn  = document.getElementById('addBtn');
+const tbody = document.getElementById('scheduleBody');
+const addBtn = document.getElementById('addBtn');
 const clearBtn = document.getElementById('clearBtn');
 
 const YES = '✅';
-const NO  = '❌';
+const NO = '❌';
 
-function valuesFromChecks() {
+function getDayValues() {
   return [
     checks.mon.checked ? YES : NO,
     checks.tue.checked ? YES : NO,
@@ -23,7 +23,7 @@ function valuesFromChecks() {
   ];
 }
 
-function resetForm() {
+function clearForm() {
   courseInput.value = '';
   for (const k in checks) checks[k].checked = false;
   courseInput.focus();
@@ -31,26 +31,25 @@ function resetForm() {
 
 addBtn.addEventListener('click', (e) => {
   e.preventDefault();
+  const name = courseInput.value.trim() || 'Untitled course';
 
-  const name = (courseInput.value || '').trim() || 'Untitled course';
   const tr = document.createElement('tr');
-
   const th = document.createElement('th');
   th.scope = 'row';
   th.textContent = name;
   tr.appendChild(th);
 
-  for (const v of valuesFromChecks()) {
+  for (const val of getDayValues()) {
     const td = document.createElement('td');
-    td.textContent = v;
+    td.textContent = val;
     tr.appendChild(td);
   }
 
   tbody.appendChild(tr);
-  resetForm();
+  clearForm();
 });
 
 clearBtn.addEventListener('click', (e) => {
   e.preventDefault();
-  resetForm();
+  clearForm();
 });
