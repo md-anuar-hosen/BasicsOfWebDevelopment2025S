@@ -1,9 +1,9 @@
  <!doctype html>
-<html lang="en">
- <!--
+<!--
 Author: Md Anuar Hosen
 Date: 2025-10-10
 -->
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -17,23 +17,22 @@ Date: 2025-10-10
   </header>
 
   <main class="content">
-    <section class="two-col">
-      <div class="panel">
+    <section class="grid">
+      <div class="card">
         <h2>Information</h2>
         <p>Md Anuar Hosen</p>
         <p>AITS22P</p>
       </div>
 
-      <div class="panel">
+      <div class="card">
         <h2>Add Course</h2>
-
         <label class="field">
           <span>Course name</span>
           <input id="courseName" type="text" placeholder="e.g., Web Development Basics" />
         </label>
 
-        <fieldset class="days">
-          <legend>Days (yes = ✅, no = ❌)</legend>
+        <fieldset class="field days">
+          <legend>Days (✅ = yes, ❌ = no)</legend>
           <label><input type="checkbox" id="dMon"> Mon</label>
           <label><input type="checkbox" id="dTue"> Tue</label>
           <label><input type="checkbox" id="dWed"> Wed</label>
@@ -43,7 +42,7 @@ Date: 2025-10-10
 
         <div class="actions">
           <button id="addBtn" class="btn primary">Add row</button>
-          <button id="clearBtn" class="btn" type="button">Clear</button>
+          <button id="clearBtn" class="btn">Clear</button>
         </div>
       </div>
     </section>
@@ -61,7 +60,7 @@ Date: 2025-10-10
             <th scope="col">Fri</th>
           </tr>
         </thead>
-        <tbody id="scheduleBody"><!-- MUST START EMPTY --></tbody>
+        <tbody id="scheduleBody"></tbody>
       </table>
     </section>
   </main>
